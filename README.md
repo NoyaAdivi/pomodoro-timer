@@ -73,11 +73,11 @@
 
 <table>
   <tr>
-    <td width="50%"><a href="https://noyaadivi.github.io/pomodoro-timer/"><img src="docs/images/preview-en.png" width="100%" alt="Pomodoro Timer in English, dark mode"></a></td>
+    <td width="50%"><a href="https://noyaadivi.github.io/pomodoro-timer/"><img src="docs/images/preview-en.png" width="100%" alt="Pomodoro Timer in English, light mode"></a></td>
     <td width="50%"><a href="https://noyaadivi.github.io/pomodoro-timer/"><img src="docs/images/preview-he.png" width="100%" alt="Pomodoro Timer in Hebrew, light mode"></a></td>
   </tr>
   <tr>
-    <td align="center"><sub>English · dark mode</sub></td>
+    <td align="center"><sub>English · light mode</sub></td>
     <td align="center"><sub>עברית · light mode</sub></td>
   </tr>
 </table>

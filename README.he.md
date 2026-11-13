@@ -76,11 +76,11 @@
 <table dir="rtl">
   <tr>
     <td width="50%"><a href="https://noyaadivi.github.io/pomodoro-timer/"><img src="docs/images/preview-he.png" width="100%" alt="טיימר פומודורו בעברית, מצב בהיר"></a></td>
-    <td width="50%"><a href="https://noyaadivi.github.io/pomodoro-timer/"><img src="docs/images/preview-en.png" width="100%" alt="טיימר פומודורו באנגלית, מצב כהה"></a></td>
+    <td width="50%"><a href="https://noyaadivi.github.io/pomodoro-timer/"><img src="docs/images/preview-en.png" width="100%" alt="טיימר פומודורו באנגלית, מצב בהיר"></a></td>
   </tr>
   <tr>
     <td align="center"><sub>עברית · מצב בהיר</sub></td>
-    <td align="center"><sub>English · מצב כהה</sub></td>
+    <td align="center"><sub>English · מצב בהיר</sub></td>
   </tr>
 </table>
 

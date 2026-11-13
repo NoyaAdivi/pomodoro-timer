@@ -1,7 +1,7 @@
 <div dir="rtl">
 
 <p align="center">
-  <a href="https://noyaadivi.github.io/pomodoro-timer/"><img src="docs/readme/banner-he.svg" width="100%" alt="טיימר פומודורו: טיימר דו לשוני עם אנימציות, משימות וסטטיסטיקות"></a>
+  <a href="https://noyaadivi.github.io/pomodoro-timer/"><img src="docs/readme/banner-he.svg" width="100%" alt="Pomodoro Timer: טיימר דו לשוני עם אנימציות, משימות וסטטיסטיקות"></a>
 </p>
 
 <p align="center"><a href="README.md"><img src="docs/readme/lang-en.svg" height="44" alt="English version"></a></p>
@@ -75,8 +75,8 @@
 
 <table dir="rtl">
   <tr>
-    <td width="50%"><a href="https://noyaadivi.github.io/pomodoro-timer/"><img src="docs/images/preview-he.png" width="100%" alt="טיימר פומודורו בעברית, מצב בהיר"></a></td>
-    <td width="50%"><a href="https://noyaadivi.github.io/pomodoro-timer/"><img src="docs/images/preview-en.png" width="100%" alt="טיימר פומודורו באנגלית, מצב בהיר"></a></td>
+    <td width="50%"><a href="https://noyaadivi.github.io/pomodoro-timer/"><img src="docs/images/preview-he.png" width="100%" alt="Pomodoro Timer בעברית, מצב בהיר"></a></td>
+    <td width="50%"><a href="https://noyaadivi.github.io/pomodoro-timer/"><img src="docs/images/preview-en.png" width="100%" alt="Pomodoro Timer באנגלית, מצב בהיר"></a></td>
   </tr>
   <tr>
     <td align="center"><sub>עברית · מצב בהיר</sub></td>

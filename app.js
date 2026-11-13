@@ -9,7 +9,7 @@
   /* ---------- texts ---------- */
   const T = {
     he: {
-      appName: 'טיימר פומודורו', tagline: 'להתרכז. לנוח. לחזור על זה.', repo: 'הקוד בגיטהאב',
+      appName: 'Pomodoro Timer', tagline: 'להתרכז. לנוח. לחזור על זה.', repo: 'הקוד בגיטהאב',
       focus: 'פוקוס', short: 'הפסקה קצרה', long: 'הפסקה ארוכה',
       focusTitle: 'זמן להתרכז', shortTitle: 'נושמים רגע', longTitle: 'הפסקה ארוכה ומגיעה לך',
       start: 'התחלה', pause: 'עצירה', resume: 'המשך', reset: 'איפוס', skip: 'דילוג',

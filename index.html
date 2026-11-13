@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" data-theme="light" data-mode="focus">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer · Noya Adivi</title>
+  <meta name="description" content="A bilingual Pomodoro timer with animations, tasks, stats and localStorage. טיימר פומודורו דו לשוני עם אנימציות, משימות וסטטיסטיקות.">
+  <meta name="theme-color" content="#FFE6DE">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+    <span class="spark s1">✦</span><span class="spark s2">✦</span><span class="spark s3">✦</span><span class="spark s4">✦</span>
+  </div>
+
+  <header class="top">
+    <a class="brand" href="https://github.com/NoyaAdivi/pomodoro-timer" target="_blank" rel="noopener" data-i18n-title="repo">
+      <img src="logo.svg" alt="" width="44" height="44" class="brand-logo">
+      <span class="brand-text"><b data-i18n="appName">טיימר פומודורו</b><small data-i18n="tagline">להתרכז. לנוח. לחזור על זה.</small></span>
+    </a>
+    <div class="top-actions">
+      <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language"><span id="langLabel">EN</span></button>
+      <button class="icon-btn" id="themeBtn" type="button" data-i18n-label="theme"><span id="themeIcon">🌙</span></button>
+      <button class="icon-btn" id="settingsBtn" type="button" data-i18n-label="settings">⚙️</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="card timer-card" aria-labelledby="modeTitle">
+      <div class="tabs" role="tablist">
+        <button class="tab active" role="tab" data-mode="focus" type="button" data-i18n="focus">פוקוס</button>
+        <button class="tab" role="tab" data-mode="short" type="button" data-i18n="short">הפסקה קצרה</button>
+        <button class="tab" role="tab" data-mode="long" type="button" data-i18n="long">הפסקה ארוכה</button>
+        <span class="tab-pill" aria-hidden="true"></span>
+      </div>
+
+      <div class="ring-wrap" id="ringWrap">
+        <svg class="ring" viewBox="0 0 320 320" aria-hidden="true">
+          <defs>
+            <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" class="g1"/>
+              <stop offset="1" class="g2"/>
+            </linearGradient>
+          </defs>
+          <circle class="ring-track" cx="160" cy="160" r="140"/>
+          <circle class="ring-bar" id="ringBar" cx="160" cy="160" r="140"/>
+          <circle class="ring-dot" id="ringDot" cx="160" cy="20" r="9"/>
+        </svg>
+        <div class="ring-center">
+          <h1 id="modeTitle" class="mode-title" data-i18n="focusTitle">זמן להתרכז</h1>
+          <div class="time" id="time" aria-live="polite">25:00</div>
+          <div class="round" id="roundLabel">סבב 1 מתוך 4</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="ctrl ghost" id="resetBtn" type="button" data-i18n-label="reset" title="R">↺</button>
+        <button class="ctrl main" id="startBtn" type="button"><span id="startLabel" data-i18n="start">התחלה</span></button>
+        <button class="ctrl ghost" id="skipBtn" type="button" data-i18n-label="skip" title="S">⏭</button>
+      </div>
+
+      <p class="current-task" id="currentTask"></p>
+      <p class="hint" data-i18n="shortcuts">קיצורים: רווח להתחלה או עצירה · R לאיפוס · S לדילוג</p>
+    </section>
+
+    <section class="card tasks-card" aria-labelledby="tasksTitle">
+      <h2 id="tasksTitle"><span>📝</span> <span data-i18n="tasks">משימות</span></h2>
+      <form id="taskForm" class="task-form" autocomplete="off">
+        <input id="taskInput" type="text" maxlength="80" required data-i18n-ph="taskPh" placeholder="על מה עובדים היום?">
+        <input id="taskEst" type="number" min="1" max="12" value="1" data-i18n-label="estimate">
+        <button class="add-btn" type="submit" data-i18n-label="add">＋</button>
+      </form>
+      <ul class="task-list" id="taskList"></ul>
+      <p class="empty" id="tasksEmpty" data-i18n="noTasks">עדיין אין משימות. הוסיפי משימה ראשונה ולחצי עליה כדי לבחור אותה.</p>
+      <button class="text-btn" id="clearDoneBtn" type="button" data-i18n="clearDone">ניקוי משימות שהושלמו</button>
+    </section>
+
+    <section class="card stats-card" aria-labelledby="statsTitle">
+      <h2 id="statsTitle"><span>📊</span> <span data-i18n="stats">הסטטיסטיקה שלי</span></h2>
+      <div class="stat-grid">
+        <div class="stat"><b id="statToday">0</b><small data-i18n="statToday">פומודורו היום</small></div>
+        <div class="stat"><b id="statMinutes">0</b><small data-i18n="statMinutes">דקות פוקוס היום</small></div>
+        <div class="stat"><b id="statStreak">0</b><small data-i18n="statStreak">ימים ברצף 🔥</small></div>
+        <div class="stat"><b id="statTotal">0</b><small data-i18n="statTotal">סך הכל פומודורו</small></div>
+      </div>
+      <h3 class="week-title" data-i18n="week">7 הימים האחרונים</h3>
+      <div class="week" id="weekChart"></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span data-i18n="madeBy">נוצר על ידי נויה אדיבי</span>
+    <a href="https://github.com/NoyaAdivi/pomodoro-timer" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://noyaadivi.github.io/noya-website" target="_blank" rel="noopener" data-i18n="portfolio">תיק עבודות</a>
+    <a href="https://www.linkedin.com/in/noya-adivi/" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
+
+  <dialog id="settingsDialog" class="dialog">
+    <form method="dialog" id="settingsForm">
+      <h2><span>⚙️</span> <span data-i18n="settings">הגדרות</span></h2>
+      <div class="field-row">
+        <label><span data-i18n="focusMin">פוקוס (דקות)</span><input type="number" id="setFocus" min="1" max="120" required></label>
+        <label><span data-i18n="shortMin">הפסקה קצרה</span><input type="number" id="setShort" min="1" max="60" required></label>
+        <label><span data-i18n="longMin">הפסקה ארוכה</span><input type="number" id="setLong" min="1" max="90" required></label>
+      </div>
+      <label class="field"><span data-i18n="interval">הפסקה ארוכה אחרי כמה סבבים</span><input type="number" id="setInterval" min="2" max="10" required></label>
+      <label class="switch"><input type="checkbox" id="setAutoBreak"><span class="slider"></span><span data-i18n="autoBreak">להתחיל הפסקות אוטומטית</span></label>
+      <label class="switch"><input type="checkbox" id="setAutoFocus"><span class="slider"></span><span data-i18n="autoFocus">להתחיל פוקוס אוטומטית אחרי הפסקה</span></label>
+      <label class="switch"><input type="checkbox" id="setSound"><span class="slider"></span><span data-i18n="sound">צליל בסיום</span></label>
+      <label class="switch"><input type="checkbox" id="setNotify"><span class="slider"></span><span data-i18n="notify">התראה בדפדפן</span></label>
+      <div class="dialog-actions">
+        <button type="button" class="text-btn" id="testSoundBtn" data-i18n="testSound">🔔 לשמוע צליל</button>
+        <button type="button" class="text-btn danger" id="resetStatsBtn" data-i18n="resetStats">איפוס סטטיסטיקה</button>
+      </div>
+      <div class="dialog-actions end">
+        <button type="button" class="ctrl ghost small" id="cancelSettings" data-i18n="cancel">ביטול</button>
+        <button type="submit" class="ctrl main small" id="saveSettings" data-i18n="save">שמירה</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -9,7 +9,7 @@
   --bg1: #FFE6DE; --bg2: #E8E4FF; --bg3: #D9F3E7;
   --a: #E36E57; --a2: #F5A08C; --soft: #FFE6DE; --deep: #A8483A;
   --radius: 28px;
-  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Rubik", Helvetica, Arial, sans-serif;
+  --font: "Rubik", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 }
 html[data-mode="short"] { --a: #2E9A6C; --a2: #7FD3B0; --soft: #D9F3E7; --deep: #1F7350; }
 html[data-mode="long"]  { --a: #6F60F0; --a2: #B3A9FA; --soft: #E8E4FF; --deep: #5548C8; }
@@ -197,3 +197,6 @@ html[data-theme="dark"] .toast { background: #B3A9FA; color: #2C2668; }
   .ctrl.main { min-width: 140px; padding: 16px 24px; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* ---------- shared look: Fredoka for titles, Rubik for text ---------- */
+h1,h2,h3,.brand{font-family:"Fredoka","Rubik",system-ui,sans-serif}

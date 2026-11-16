@@ -200,3 +200,7 @@ html[data-theme="dark"] .toast { background: #B3A9FA; color: #2C2668; }
 
 /* ---------- shared look: Fredoka for titles, Rubik for text ---------- */
 h1,h2,h3,.brand{font-family:"Fredoka","Rubik",system-ui,sans-serif}
+
+/* consistency fixes: one font everywhere, no sideways scroll on mobile */
+button,input,select,textarea{font-family:inherit}
+html,body{overflow-x:clip;max-width:100%}

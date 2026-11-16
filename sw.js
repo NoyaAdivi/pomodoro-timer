@@ -1,5 +1,5 @@
 /* Service worker: makes the site an installable app that also opens offline. */
-const VERSION = 'pomodoro-timer-v1';
+const VERSION = 'pomodoro-timer-v2';
 const SHELL = ["index.html", "style.css", "app.js", "noya-kit.js", "logo.svg", "noya-app.js", "faq.js", "manifest.webmanifest", "icons/icon-192.png"];
 
 self.addEventListener('install', (e) => {

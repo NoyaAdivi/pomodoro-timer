@@ -70,6 +70,28 @@
   </tr>
 </table>
 
+<a name="app"></a>
+<h3 align="center">📲 אפליקציה ושאלות נפוצות <sub><sup>חדש</sup></sub></h3>
+<p align="center">אפשר להתקין את Pomodoro כאפליקציה אמיתית עם אייקון משלה, והאתר עונה על השאלות הנפוצות לפי נושא.</p>
+
+<table>
+  <tr valign="top">
+    <td width="50%">
+      <ul>
+        <li><b>📲 אפליקציה להתקנה (PWA):</b> אייקון וחלון משלה בטלפון ובמחשב, עם השם Pomodoro בלבד</li>
+        <li><b>⚡ עובדת גם בלי אינטרנט</b> אחרי הביקור הראשון, בעזרת Service Worker</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <ul>
+        <li><b><a href="https://noyaadivi.github.io/pomodoro-timer/?lang=he#faq">❓ שאלות נפוצות לפי נושא</a>:</b> סינון בצ׳יפים, חיפוש עם הדגשה ואנימציות רכות</li>
+        <li><b>🔗 נבנה על ידי נויה אדיבי</b> עם קישור ללינקדאין בתחתית כל עמוד</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+
 <a name="see-it-in-action"></a>
 <p align="center"><a href="#how-a-cycle-works"><img src="docs/readme/screens-he.svg" width="100%" alt="ככה זה נראה"></a></p>
 

@@ -7,6 +7,13 @@
   <meta name="description" content="A bilingual Pomodoro timer with animations, tasks, stats and localStorage. טיימר פומודורו דו לשוני עם אנימציות, משימות וסטטיסטיקות.">
   <meta name="theme-color" content="#FFE6DE">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <meta name="application-name" content="Pomodoro">
+  <meta name="apple-mobile-web-app-title" content="Pomodoro">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -76,7 +83,7 @@
         <button class="add-btn" type="submit" data-i18n-label="add">＋</button>
       </form>
       <ul class="task-list" id="taskList"></ul>
-      <p class="empty" id="tasksEmpty" data-i18n="noTasks">עדיין אין משימות. הוסיפי משימה ראשונה ולחצי עליה כדי לבחור אותה.</p>
+      <p class="empty" id="tasksEmpty" data-i18n="noTasks">עדיין אין משימות. הוסיפו משימה ראשונה ולחצו עליה כדי לבחור אותה.</p>
       <button class="text-btn" id="clearDoneBtn" type="button" data-i18n="clearDone">ניקוי משימות שהושלמו</button>
     </section>
 
@@ -94,7 +101,7 @@
   </main>
 
   <footer class="foot">
-    <p class="built-by"><span class="bb-en">Built by</span><span class="bb-he">נבנה על ידי</span> <a href="https://www.linkedin.com/in/noya-adivi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z"/></svg><span class="bb-en">Noya</span><span class="bb-he">נויה</span></a></p>
+    <p class="built-by"><span class="bb-en">Built by</span><span class="bb-he">נבנה על ידי</span> <a href="https://www.linkedin.com/in/noya-adivi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z"/></svg><span class="bb-en">Noya Adivi</span><span class="bb-he">נויה אדיבי</span></a></p>
     <a href="https://github.com/NoyaAdivi/pomodoro-timer" target="_blank" rel="noopener">GitHub</a>
     <a href="https://noyaadivi.github.io/noya-website" target="_blank" rel="noopener" data-i18n="portfolio">תיק עבודות</a>
   </footer>
@@ -128,5 +135,7 @@
 
   <script src="app.js"></script>
   <script src="noya-kit.js" data-theme-btn="#themeBtn" defer></script>
+  <script src="faq.js" defer></script>
+  <script src="noya-app.js" data-sw="sw.js" data-repo="https://github.com/NoyaAdivi/pomodoro-timer" defer></script>
 </body>
 </html>

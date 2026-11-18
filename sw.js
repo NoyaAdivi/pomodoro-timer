@@ -1,6 +1,6 @@
 /* Service worker: makes the site an installable app that also opens offline. */
-const VERSION = 'pomodoro-timer-v4';
-const SHELL = ["index.html", "style.css?v=4", "app.js?v=4", "upgrade.js?v=4", "noya-kit.js", "logo.svg", "noya-app.js", "faq.js", "manifest.webmanifest", "icons/icon-192.png"];
+const VERSION = 'pomodoro-timer-v5';
+const SHELL = ["index.html", "style.css?v=5", "app.js?v=5", "upgrade.js?v=5", "noya-kit.js", "logo.svg", "noya-app.js", "faq.js", "manifest.webmanifest", "icons/icon-192.png"];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => Promise.all(SHELL.map((u) => c.add(u).catch(() => {})))).then(() => self.skipWaiting()));

@@ -11,6 +11,7 @@
       ach: 'הישגים', achSub: (a, b) => `${a} מתוך ${b} נפתחו`,
       pip: 'טיימר צף מעל כל החלונות', pipTitle: 'טיימר צף',
       backup: '💾 גיבוי לקובץ', restore: '📂 שחזור מגיבוי', restored: 'הגיבוי שוחזר בהצלחה', bad: 'הקובץ הזה לא נראה כמו גיבוי של הטיימר',
+      tabs: ['סקירה', 'מפה', 'הישגים', 'יומן'], top: 'חזרה למעלה',
       sure: 'השחזור יחליף את כל הנתונים הנוכחיים. להמשיך?', locked: 'נעול', day: (n, d) => `${d}: ${n} פומודורו`,
       a: [
         ['🌱', 'צעד ראשון', 'לסיים פומודורו ראשון'],
@@ -30,6 +31,7 @@
       ach: 'Achievements', achSub: (a, b) => `${a} of ${b} unlocked`,
       pip: 'Floating timer above all windows', pipTitle: 'Floating timer',
       backup: '💾 Back up to file', restore: '📂 Restore backup', restored: 'Backup restored', bad: 'This file does not look like a timer backup',
+      tabs: ['Overview', 'Map', 'Badges', 'Log'], top: 'Back to top',
       sure: 'Restoring replaces all your current data. Continue?', locked: 'Locked', day: (n, d) => `${d}: ${n} pomodoros`,
       a: [
         ['🌱', 'First step', 'Finish your first pomodoro'],
@@ -127,6 +129,9 @@
     const S = read();
     document.querySelectorAll('[data-up]').forEach((n) => { n.textContent = t(n.dataset.up); });
     renderHeat(S); renderAch(S);
+    L[he() ? 'he' : 'en'].tabs.forEach((x, i) => { tabBar.children[i + 1].textContent = x; });
+    up.title = t('top'); up.setAttribute('aria-label', t('top'));
+    showTab(cur);
     if (pipBtn) { pipBtn.title = t('pip'); pipBtn.setAttribute('aria-label', t('pip')); }
   }
 
@@ -187,6 +192,83 @@
     } catch (err) { popToast(t('bad')); }
   });
   if (sessionStorage.getItem('pomo-restored')) { sessionStorage.removeItem('pomo-restored'); setTimeout(() => popToast(t('restored')), 600); }
+
+
+  /* ---------- stats card tabs: less clutter ---------- */
+  const heads = box.querySelectorAll('h3');
+  const pick = (...nodes) => nodes.filter(Boolean);
+  const groups = [
+    pick(stats.querySelector('.goal'), stats.querySelector('.stat-grid'), $('weekChart').previousElementSibling, $('weekChart'), $('weekSum')),
+    pick(heads[0], box.querySelector('.heat-wrap'), box.querySelector('.heat-foot')),
+    pick(heads[1], $('ach')),
+    pick($('logList').previousElementSibling, $('logList'), exportBtn, backup)
+  ];
+  const tabBar = document.createElement('div');
+  tabBar.className = 'stabs'; tabBar.setAttribute('role', 'tablist');
+  tabBar.innerHTML = '<span class="stabs-pill" aria-hidden="true"></span>' + groups.map((_, i) => `<button class="stab" type="button" role="tab" data-i="${i}"></button>`).join('');
+  stats.querySelector('h2').insertAdjacentElement('afterend', tabBar);
+  const panels = groups.map((g, i) => {
+    const p = document.createElement('div'); p.className = 'spanel'; p.setAttribute('role', 'tabpanel');
+    g.forEach((n) => p.appendChild(n)); stats.appendChild(p); return p;
+  });
+  box.remove();
+  let cur = +(localStorage.getItem('pomo-stab') || 0);
+  function showTab(i, user) {
+    cur = i;
+    panels.forEach((p, j) => { p.hidden = j !== i; if (j === i && user) { p.classList.remove('enter'); void p.offsetWidth; p.classList.add('enter'); } });
+    tabBar.querySelectorAll('.stab').forEach((b, j) => { b.classList.toggle('on', j === i); b.setAttribute('aria-selected', j === i); });
+    movePill();
+    try { localStorage.setItem('pomo-stab', i); } catch (e) {}
+  }
+  function movePill() {
+    const b = tabBar.querySelector('.stab.on'), pill = tabBar.querySelector('.stabs-pill');
+    if (b) { pill.style.left = b.offsetLeft + 'px'; pill.style.width = b.offsetWidth + 'px'; }
+  }
+  tabBar.addEventListener('click', (e) => { const b = e.target.closest('.stab'); if (b) showTab(+b.dataset.i, true); });
+  addEventListener('resize', movePill);
+
+  /* ---------- back to top ---------- */
+  const up = document.createElement('button');
+  up.className = 'to-top'; up.type = 'button'; up.textContent = '↑';
+  up.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+  document.body.appendChild(up);
+  addEventListener('scroll', () => up.classList.toggle('show', scrollY > 300), { passive: true });
+
+  /* ---------- colour wave when the mode changes ---------- */
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let lastMode = root.dataset.mode;
+  new MutationObserver(() => {
+    if (root.dataset.mode === lastMode) return;
+    lastMode = root.dataset.mode;
+    if (reduce) return;
+    const r = $('ringWrap').getBoundingClientRect();
+    const w = document.createElement('div'); w.className = 'wash';
+    w.style.setProperty('--x', (r.left + r.width / 2) + 'px'); w.style.setProperty('--y', (r.top + r.height / 2) + 'px');
+    document.body.appendChild(w); setTimeout(() => w.remove(), 1300);
+  }).observe(root, { attributes: true, attributeFilter: ['data-mode'] });
+
+  /* ---------- magnetic start button ---------- */
+  const sb = $('startBtn');
+  if (!reduce && matchMedia('(hover: hover)').matches) {
+    sb.addEventListener('pointermove', (e) => { const r = sb.getBoundingClientRect(); sb.style.translate = `${(e.clientX - r.left - r.width / 2) * .15}px ${(e.clientY - r.top - r.height / 2) * .25}px`; });
+    sb.addEventListener('pointerleave', () => { sb.style.translate = ''; });
+  }
+
+  /* ---------- reveal on scroll ---------- */
+  if (!reduce && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((es) => es.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), { threshold: .12 });
+    document.querySelectorAll('.presets, .sound-box, .tasks-card, .stats-card, .foot').forEach((n) => {
+      if (n.getBoundingClientRect().top > innerHeight) { n.classList.add('rv'); io.observe(n); }
+    });
+  }
+
+  /* ---------- short welcome splash (once per visit) ---------- */
+  if (!reduce && !sessionStorage.getItem('pomo-hello')) {
+    sessionStorage.setItem('pomo-hello', '1');
+    const sp = document.createElement('div'); sp.className = 'splash';
+    sp.innerHTML = '<img src="logo.svg" alt=""><span></span>';
+    document.body.appendChild(sp); setTimeout(() => sp.remove(), 1500);
+  }
 
   /* ---------- keep in sync with the app ---------- */
   renderAll();

@@ -68,8 +68,33 @@
   </tr>
 </table>
 
+<a name="whats-new"></a>
+<h3 align="center">✨ What's new <sub><sup>new</sup></sub></h3>
+<p align="center">A calmer layout with more motion and a few fun extras that make every focus round feel like progress.</p>
+
+<table>
+  <tr valign="top">
+    <td width="50%">
+      <ul>
+        <li><b>🗺️ Focus map:</b> a GitHub style grid of the last 18 weeks, the more rounds the stronger the colour</li>
+        <li><b>🏅 10 achievements:</b> badges like Night owl, Early bird and Perfect week that pop open when you earn them</li>
+        <li><b>🪟 Floating timer:</b> a small window that stays above every app so you can see the time while you work (Chrome and Edge)</li>
+        <li><b>💾 Backup and restore:</b> save all your data to a file and bring it back on any device</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <ul>
+        <li><b>🗂️ Tidy stats:</b> Overview, Map, Badges and Log tabs instead of one long card</li>
+        <li><b>🌊 Colour wave:</b> the page washes into the new colour when you switch between focus and breaks</li>
+        <li><b>🎬 Motion everywhere:</b> welcome splash, animated hero, cursor spotlight on cards, button ripples and reveal on scroll</li>
+        <li><b>⬆️ Back to top</b> button and a footer that stays on one line, even on a phone</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
 <a name="app"></a>
-<h3 align="center">📲 App and FAQ <sub><sup>new</sup></sub></h3>
+<h3 align="center">📲 App and FAQ</h3>
 <p align="center">Pomodoro can be installed as a real app with its own icon, and the site answers common questions by topic.</p>
 
 <table>
@@ -185,6 +210,7 @@ Everything lives under one key, `pomodoro-timer.v1`, in `localStorage`:
 ├── index.html          the page: timer, tasks, stats and the settings dialog
 ├── style.css           pastel theme, animations, dark mode and RTL
 ├── app.js              timer logic, localStorage, tasks, stats, sound and translations
+├── upgrade.js          focus map, achievements, stats tabs, floating timer, backup and motion
 ├── logo.svg            the app logo and favicon
 └── docs/
     ├── images/         screenshots for this README

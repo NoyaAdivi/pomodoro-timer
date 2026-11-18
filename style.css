@@ -311,3 +311,16 @@ html.zen .ring-wrap { width: min(520px, 86vw, 62vh); }
 html.zen .time { font-size: clamp(4rem, 15vw, 7.5rem); }
 html.zen .zen-exit { display: inline-block; margin-top: 18px; border: 0; background: none; color: var(--muted); font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
 html.zen .blob { opacity: .35; }
+
+/* ===== phone fit ===== */
+.layout > * { min-width: 0; }
+.sound-box .switch { margin: 0; font-size: .85rem; }
+@media (max-width: 900px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 480px) {
+  .layout { padding: 10px 12px 24px; gap: 16px; }
+  .top-actions { gap: 6px; }
+  .icon-btn { width: 40px; height: 40px; }
+  .tab { font-size: .85rem; padding-inline: 6px; }
+  .vol input { width: 96px; }
+  .controls { gap: 12px; }
+}

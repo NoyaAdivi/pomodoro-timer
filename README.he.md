@@ -97,8 +97,8 @@
 
 <table dir="rtl">
   <tr>
-    <td width="50%"><a href="https://noyaadivi.github.io/pomodoro-timer/"><img src="docs/images/preview-he.png" width="100%" alt="Pomodoro Timer בעברית, מצב בהיר"></a></td>
-    <td width="50%"><a href="https://noyaadivi.github.io/pomodoro-timer/"><img src="docs/images/preview-en.png" width="100%" alt="Pomodoro Timer באנגלית, מצב בהיר"></a></td>
+    <td width="50%"><a href="https://noyaadivi.github.io/pomodoro-timer/"><img src="docs/images/screenshot-he.png" width="100%" alt="Pomodoro Timer בעברית, מצב בהיר"></a></td>
+    <td width="50%"><a href="https://noyaadivi.github.io/pomodoro-timer/"><img src="docs/images/screenshot-en.png" width="100%" alt="Pomodoro Timer באנגלית, מצב בהיר"></a></td>
   </tr>
   <tr>
     <td align="center"><sub>עברית · מצב בהיר</sub></td>

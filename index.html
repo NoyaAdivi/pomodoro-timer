@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Pomodoro Timer · Noya Adivi</title>
-  <meta name="description" content="A bilingual Pomodoro timer with animations, tasks, stats and localStorage. טיימר פומודורו דו לשוני עם אנימציות, משימות וסטטיסטיקות.">
+  <meta name="description" content="A bilingual Pomodoro timer with animations, tasks, stats and localStorage. טיימר פומודורו דו־לשוני עם אנימציות, משימות וסטטיסטיקות.">
   <meta name="theme-color" content="#FFE6DE">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.webmanifest">
@@ -16,7 +16,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css">
 <style>.built-by{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.45em;margin:.6em 0;font-weight:600}.built-by a{display:inline-flex;align-items:center;gap:.4em;padding:.28em .8em;border-radius:999px;font-weight:800;text-decoration:none;color:inherit;background:rgba(10,102,194,.1);transition:transform .25s ease,background .25s ease,box-shadow .25s ease}.built-by a:hover,.built-by a:focus-visible{transform:translateY(-2px);background:rgba(10,102,194,.18);box-shadow:0 6px 16px rgba(10,102,194,.18)}.built-by svg{width:1.1em;height:1.1em;fill:#0A66C2;flex:none;transition:transform .35s ease}.built-by a:hover svg{transform:rotate(-8deg) scale(1.12)}html[lang="he"] .built-by .bb-en,html:not([lang="he"]) .built-by .bb-he{display:none}@media (prefers-reduced-motion:reduce){.built-by a,.built-by svg{transition:none}}</style>
 </head>
 <body>
@@ -33,7 +33,6 @@
     <div class="top-actions">
       <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language"><span id="langLabel">EN</span></button>
       <button class="icon-btn" id="themeBtn" type="button" data-i18n-label="theme"><span id="themeIcon">🌙</span></button>
-      <button class="icon-btn" id="zenBtn" type="button" data-i18n-label="zen">⛶</button>
       <button class="icon-btn" id="settingsBtn" type="button" data-i18n-label="settings">⚙️</button>
     </div>
   </header>
@@ -45,13 +44,6 @@
         <button class="tab" role="tab" data-mode="short" type="button" data-i18n="short">הפסקה קצרה</button>
         <button class="tab" role="tab" data-mode="long" type="button" data-i18n="long">הפסקה ארוכה</button>
         <span class="tab-pill" aria-hidden="true"></span>
-      </div>
-
-      <div class="presets" role="group" data-i18n-label="presets">
-        <button class="preset" type="button" data-preset="classic"><span data-i18n="pClassic">קלאסי</span> <small>25/5</small></button>
-        <button class="preset" type="button" data-preset="deep"><span data-i18n="pDeep">עבודה עמוקה</span> <small>50/10</small></button>
-        <button class="preset" type="button" data-preset="marathon"><span data-i18n="pMarathon">מרתון</span> <small>90/20</small></button>
-        <button class="preset" type="button" data-preset="custom"><span data-i18n="pCustom">מותאם</span> <small>⚙️</small></button>
       </div>
 
       <div class="ring-wrap" id="ringWrap">
@@ -70,11 +62,6 @@
           <h1 id="modeTitle" class="mode-title" data-i18n="focusTitle">זמן להתרכז</h1>
           <div class="time" id="time" aria-live="polite">25:00</div>
           <div class="round" id="roundLabel">סבב 1 מתוך 4</div>
-          <div class="adjust">
-            <button class="mini" id="minusBtn" type="button" data-i18n-label="minusMin">−1</button>
-            <button class="mini" id="plusBtn" type="button" data-i18n-label="plusMin">+1</button>
-          </div>
-          <div class="ends" id="endsAt"></div>
         </div>
       </div>
 
@@ -85,22 +72,7 @@
       </div>
 
       <p class="current-task" id="currentTask"></p>
-      <div class="sound-box" id="soundBox">
-        <div class="sound-head"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><b data-i18n="sounds">צלילי רקע</b></div>
-        <div class="snd-row" role="group" data-i18n-label="sounds">
-          <button class="snd" type="button" data-snd="none">🔇 <span data-i18n="sNone">שקט</span></button>
-          <button class="snd" type="button" data-snd="rain">🌧️ <span data-i18n="sRain">גשם</span></button>
-          <button class="snd" type="button" data-snd="waves">🌊 <span data-i18n="sWaves">גלים</span></button>
-          <button class="snd" type="button" data-snd="brown">🟤 <span data-i18n="sBrown">רעש חום</span></button>
-          <button class="snd" type="button" data-snd="cafe">☕ <span data-i18n="sCafe">בית קפה</span></button>
-        </div>
-        <div class="snd-opts">
-          <label class="vol"><span data-i18n="volume">עוצמה</span><input type="range" id="ambVol" min="0" max="1" step="0.05"></label>
-          <label class="switch tiny"><input type="checkbox" id="ambOnlyFocus"><span class="slider"></span><span data-i18n="soundsOnlyFocus">צלילי רקע רק בזמן פוקוס</span></label>
-        </div>
-      </div>
-      <p class="hint" data-i18n="shortcuts">קיצורים</p>
-      <button class="zen-exit" id="zenExit" type="button" data-i18n="exitZen">יציאה ממצב ריכוז</button>
+      <p class="hint" data-i18n="shortcuts">קיצורים: רווח להתחלה או עצירה · R לאיפוס · S לדילוג</p>
     </section>
 
     <section class="card tasks-card" aria-labelledby="tasksTitle">
@@ -111,18 +83,12 @@
         <button class="add-btn" type="submit" data-i18n-label="add">＋</button>
       </form>
       <ul class="task-list" id="taskList"></ul>
-      <p class="tasks-left" id="tasksLeft"></p>
       <p class="empty" id="tasksEmpty" data-i18n="noTasks">עדיין אין משימות. הוסיפו משימה ראשונה ולחצו עליה כדי לבחור אותה.</p>
       <button class="text-btn" id="clearDoneBtn" type="button" data-i18n="clearDone">ניקוי משימות שהושלמו</button>
     </section>
 
     <section class="card stats-card" aria-labelledby="statsTitle">
       <h2 id="statsTitle"><span>📊</span> <span data-i18n="stats">הסטטיסטיקה שלי</span></h2>
-      <div class="goal" id="goalBox">
-        <div class="goal-top"><b data-i18n="goal">יעד יומי</b><span id="goalText"></span></div>
-        <div class="goal-track"><span id="goalFill"></span></div>
-        <div class="goal-dots" id="goalDots"></div>
-      </div>
       <div class="stat-grid">
         <div class="stat"><b id="statToday">0</b><small data-i18n="statToday">פומודורו היום</small></div>
         <div class="stat"><b id="statMinutes">0</b><small data-i18n="statMinutes">דקות פוקוס היום</small></div>
@@ -131,10 +97,6 @@
       </div>
       <h3 class="week-title" data-i18n="week">7 הימים האחרונים</h3>
       <div class="week" id="weekChart"></div>
-      <p class="week-sum" id="weekSum"></p>
-      <h3 class="week-title" data-i18n="log">יומן היום</h3>
-      <ul class="log" id="logList"></ul>
-      <button class="text-btn" id="exportBtn" type="button" data-i18n="exportCsv">ייצוא</button>
     </section>
   </main>
 
@@ -153,12 +115,10 @@
         <label><span data-i18n="longMin">הפסקה ארוכה</span><input type="number" id="setLong" min="1" max="90" required></label>
       </div>
       <label class="field"><span data-i18n="interval">הפסקה ארוכה אחרי כמה סבבים</span><input type="number" id="setInterval" min="2" max="10" required></label>
-      <label class="field"><span data-i18n="goalSet">יעד יומי (פומודורו)</span><input type="number" id="setGoal" min="1" max="30" required></label>
       <label class="switch"><input type="checkbox" id="setAutoBreak"><span class="slider"></span><span data-i18n="autoBreak">להתחיל הפסקות אוטומטית</span></label>
       <label class="switch"><input type="checkbox" id="setAutoFocus"><span class="slider"></span><span data-i18n="autoFocus">להתחיל פוקוס אוטומטית אחרי הפסקה</span></label>
       <label class="switch"><input type="checkbox" id="setSound"><span class="slider"></span><span data-i18n="sound">צליל בסיום</span></label>
       <label class="switch"><input type="checkbox" id="setNotify"><span class="slider"></span><span data-i18n="notify">התראה בדפדפן</span></label>
-      <label class="switch"><input type="checkbox" id="setWake"><span class="slider"></span><span data-i18n="wake">להשאיר את המסך דלוק בזמן ריצה</span></label>
       <div class="dialog-actions">
         <button type="button" class="text-btn" id="testSoundBtn" data-i18n="testSound">🔔 לשמוע צליל</button>
         <button type="button" class="text-btn danger" id="resetStatsBtn" data-i18n="resetStats">איפוס סטטיסטיקה</button>
@@ -170,11 +130,10 @@
     </form>
   </dialog>
 
-  <div class="zen-bar" aria-hidden="true"><span id="zenBar"></span></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <div class="confetti" id="confetti" aria-hidden="true"></div>
 
-  <script src="app.js?v=3"></script>
+  <script src="app.js"></script>
   <script src="noya-kit.js" data-theme-btn="#themeBtn" defer></script>
   <script src="faq.js" defer></script>
   <script src="noya-app.js" data-sw="sw.js" data-repo="https://github.com/NoyaAdivi/pomodoro-timer" defer></script>

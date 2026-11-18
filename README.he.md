@@ -30,7 +30,7 @@
   <tr>
     <td align="center" width="25%"><a href="#how-a-cycle-works"><b>🍅 25 · 5 · 15</b></a><br><sub>פוקוס, הפסקה קצרה וארוכה</sub></td>
     <td align="center" width="25%"><a href="#saved-in-your-browser"><b>💾 0 שרתים</b></a><br><sub>כל המידע נשאר בדפדפן</sub></td>
-    <td align="center" width="25%"><a href="#see-it-in-action"><b>🌍 HE · EN</b></a><br><sub>דו לשוני לגמרי, כולל RTL</sub></td>
+    <td align="center" width="25%"><a href="#see-it-in-action"><b>🌍 HE · EN</b></a><br><sub>דו־לשוני לגמרי, כולל RTL</sub></td>
     <td align="center" width="25%"><a href="#keyboard-shortcuts"><b>⌨️ 3 מקשים</b></a><br><sub>רווח, R ו־S</sub></td>
   </tr>
 </table>
@@ -44,7 +44,7 @@
       <p><b>⏱️ טיימר שאפשר לסמוך עליו</b></p>
       <ul>
         <li><b>טבעת התקדמות מונפשת</b> עם נקודה שזזה וזוהר רך שנושם</li>
-        <li><b>זמן מדויק:</b> סופר לאחור מחותמת זמן של הסיום ולא ממונה, אז הוא לא זז</li>
+        <li><b>זמן מדויק:</b> סופר לאחור מחותמת זמן של הסיום ולא ממונה, ולכן הוא לא מתעכב</li>
         <li><b>שורד רענון:</b> סוגרים את הלשונית, חוזרים, והוא ממשיך מאיפה שהיה</li>
         <li><b>סבבים אוטומטיים:</b> הפסקה ארוכה אחרי כל 4 סבבי פוקוס (בוחרים את המספר)</li>
       </ul>

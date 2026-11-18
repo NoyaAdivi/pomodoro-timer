@@ -70,7 +70,7 @@
 
 <a name="app"></a>
 <h3 align="center">📲 App and FAQ <sub><sup>new</sup></sub></h3>
-<p align="center">Pomodoro installs as a real app with its own icon, and the site answers common questions by topic.</p>
+<p align="center">Pomodoro can be installed as a real app with its own icon, and the site answers common questions by topic.</p>
 
 <table>
   <tr valign="top">
@@ -130,7 +130,7 @@ Everything lives under one key, `pomodoro-timer.v1`, in `localStorage`:
 | `timer` | Current mode, round, time left and the end timestamp of a running timer |
 | `settings` | Minutes for each mode, rounds until a long break, auto start, sound, notifications |
 | `tasks`, `activeTask` | Your tasks, their estimates and progress, and the selected task |
-| `days`, `total` | Pomodoros and focus minutes per day, and the all time total |
+| `days`, `total` | Pomodoros and focus minutes per day, and the all-time total |
 | `lang`, `theme` | Hebrew or English, light or dark |
 
 > [!TIP]

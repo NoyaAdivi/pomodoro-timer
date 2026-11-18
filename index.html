@@ -39,8 +39,20 @@
     </div>
   </header>
 
+  <section class="hero">
+    <div class="hero-badge" aria-hidden="true"><img src="logo.svg" alt=""><span class="orbit"><i></i><i></i><i></i></span></div>
+    <p class="hero-title"><span class="grad" data-i18n="heroTitle">טיימר פומודורו</span></p>
+    <p class="sub" data-i18n="heroSub">עובדים בסבבים קצרים, נחים בזמן ורואים את ההתקדמות שלכם כל יום.</p>
+    <div class="pills">
+      <a href="#timerCard" data-i18n="pill1">🍅 טיימר חכם</a>
+      <a href="#tasksCard" data-i18n="pill2">📝 משימות</a>
+      <a href="#statsCard" data-i18n="pill3">📊 סטטיסטיקה</a>
+      <a href="#soundBox" data-i18n="pill4">🎧 צלילי רקע</a>
+    </div>
+  </section>
+
   <main class="layout">
-    <section class="card timer-card" aria-labelledby="modeTitle">
+    <section class="card timer-card" id="timerCard" aria-labelledby="modeTitle">
       <div class="tabs" role="tablist">
         <button class="tab active" role="tab" data-mode="focus" type="button" data-i18n="focus">פוקוס</button>
         <button class="tab" role="tab" data-mode="short" type="button" data-i18n="short">הפסקה קצרה</button>
@@ -105,7 +117,7 @@
       <button class="zen-exit" id="zenExit" type="button" data-i18n="exitZen">יציאה ממצב ריכוז</button>
     </section>
 
-    <section class="card tasks-card" aria-labelledby="tasksTitle">
+    <section class="card tasks-card" id="tasksCard" aria-labelledby="tasksTitle">
       <h2 id="tasksTitle"><span>📝</span> <span data-i18n="tasks">משימות</span></h2>
       <form id="taskForm" class="task-form" autocomplete="off">
         <input id="taskInput" type="text" maxlength="80" required data-i18n-ph="taskPh" placeholder="על מה עובדים היום?">
@@ -118,7 +130,7 @@
       <button class="text-btn" id="clearDoneBtn" type="button" data-i18n="clearDone">ניקוי משימות שהושלמו</button>
     </section>
 
-    <section class="card stats-card" aria-labelledby="statsTitle">
+    <section class="card stats-card" id="statsCard" aria-labelledby="statsTitle">
       <h2 id="statsTitle"><span>📊</span> <span data-i18n="stats">הסטטיסטיקה שלי</span></h2>
       <div class="goal" id="goalBox">
         <div class="goal-top"><b data-i18n="goal">יעד יומי</b><span id="goalText"></span></div>
@@ -141,9 +153,13 @@
   </main>
 
   <footer class="foot">
-    <p class="built-by"><span class="bb-en">Built by</span><span class="bb-he">נבנה על ידי</span> <a href="https://www.linkedin.com/in/noya-adivi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z"/></svg><span class="bb-en">Noya Adivi</span><span class="bb-he">נויה אדיבי</span></a></p>
-    <a href="https://github.com/NoyaAdivi/pomodoro-timer" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://noyaadivi.github.io/noya-website" target="_blank" rel="noopener" data-i18n="portfolio">תיק עבודות</a>
+    <div class="foot-line">
+      <span class="built-by"><span class="bb-en">Built by</span><span class="bb-he">נבנה על ידי</span> <a href="https://www.linkedin.com/in/noya-adivi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z"/></svg><span class="bb-en">Noya Adivi</span><span class="bb-he">נויה אדיבי</span></a></span>
+      <span class="dot" aria-hidden="true">·</span>
+      <a class="foot-link" href="https://github.com/NoyaAdivi/pomodoro-timer" target="_blank" rel="noopener">GitHub</a>
+      <span class="dot" aria-hidden="true">·</span>
+      <a class="foot-link" href="https://noyaadivi.github.io/noya-website" target="_blank" rel="noopener" data-i18n="portfolio">תיק עבודות</a>
+    </div>
   </footer>
 
   <dialog id="settingsDialog" class="dialog">
@@ -179,5 +195,33 @@
   <script src="noya-kit.js" data-theme-btn="#themeBtn" defer></script>
   <script src="faq.js" defer></script>
   <script src="noya-app.js" data-sw="sw.js" data-repo="https://github.com/NoyaAdivi/pomodoro-timer" defer></script>
+  <script>
+  (function () {
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('.card').forEach(function (c) {
+      c.addEventListener('pointermove', function (e) {
+        var r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+    if (!reduce) document.addEventListener('pointerdown', function (e) {
+      var b = e.target.closest('.ctrl, .preset, .snd, .tab, .icon-btn, .pills a, .add-btn');
+      if (!b) return;
+      var r = b.getBoundingClientRect(), s = document.createElement('span');
+      s.className = 'ripple'; s.style.left = (e.clientX - r.left) + 'px'; s.style.top = (e.clientY - r.top) + 'px';
+      b.appendChild(s); setTimeout(function () { s.remove(); }, 650);
+    });
+    var top = document.querySelector('.top');
+    addEventListener('scroll', function () { top.classList.toggle('scrolled', scrollY > 10); }, { passive: true });
+    document.querySelectorAll('.pills a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        var t = document.querySelector(a.getAttribute('href'));
+        if (!t) return;
+        t.classList.remove('flash'); void t.offsetWidth; t.classList.add('flash');
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
